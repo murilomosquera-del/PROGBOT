@@ -1,0 +1,134 @@
+2026-01-09 14:56:49,421 - INFO - Data hoje: 09/01/2026
+2026-01-09 14:56:49,422 - INFO - Data de referência: 31/01/2026
+2026-01-09 14:56:55,512 - INFO - 
+Qtde LINHA VIVA: 2733
+2026-01-09 14:56:55,513 - INFO - Qtde LINHA MORTA/PESADA/FAIXA: 87
+2026-01-09 14:56:56,552 - INFO - 
+Arquivo gerado: C:\Users\U469784\venvs\py311\bot_programacao\EXCEL\pendentes_20260109.xlsx
+2026-01-09 14:56:56,948 - INFO - 
+ Qtd de lotes de LM: 4
+2026-01-09 14:56:56,950 - INFO - 
+ Qtd de lotes de LV: 110
+2026-01-09 14:56:56,950 - INFO - 
+=== Iniciando lote 1/4 [LM] ===
+2026-01-09 14:57:03,378 - INFO - ⌛ Aguardando janela de seleção...
+2026-01-09 14:57:23,766 - INFO - Janela de seleção aberta
+2026-01-09 14:57:28,014 - INFO - DEBUG: idx=0, inicio=0, fim=25
+2026-01-09 14:57:28,014 - INFO - ✅ 25 OS copiadas para a área de transferência.
+2026-01-09 14:57:28,014 - INFO - 📋 Lote 1 copiado.
+2026-01-09 14:57:36,344 - INFO - ⌛ Esperando mudança visual...
+2026-01-09 14:57:37,357 - INFO - ⌛ Esperando mudança visual...
+2026-01-09 14:57:38,384 - INFO - ✅ Tela carregada!
+2026-01-09 14:57:48,848 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-01-09 14:58:09,238 - INFO - 🟨 Registros desbloqueados com sucesso
+2026-01-09 14:58:22,839 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-01-09 14:58:53,295 - INFO - 🟨 OS programadas detectadas
+2026-01-09 14:58:56,461 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-01-09 14:59:26,860 - INFO - 🟨 Janela de edição de OS detectada
+2026-01-09 14:59:48,239 - INFO - 🟨 Janela de edição de habilidade da turma detectada
+2026-01-09 15:00:33,569 - INFO - ⌛ Aguardando detecção do campo de caracteristica 'EQUIPE PRÓPRIA OU EPS' ...
+2026-01-09 15:01:05,836 - INFO - ⌛ Aguardando detecção do campo de caracteristica 'EQUIPE PRÓPRIA OU EPS' ...
+2026-01-09 15:01:38,079 - INFO - 🟨 campo de caracteristica 'EQUIPE PRÓPRIA OU EPS detectado
+2026-01-09 15:01:59,829 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-01-09 15:02:30,256 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-01-09 15:03:41,343 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-01-09 15:04:01,712 - INFO - 🟨 Janela de confirmação de programação de OS detectada
+2026-01-09 15:04:05,077 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:04:25,531 - INFO - 🟨 Janela de aviso de edição de OS programadas detectada
+2026-01-09 15:04:29,813 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:04:50,283 - INFO - 🟨 Janela de aviso de substituição de lote de OS detectada
+2026-01-09 15:04:56,558 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:05:17,028 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:27:02,790 - INFO - Data hoje: 09/01/2026
+2026-01-09 15:27:02,790 - INFO - Data de referência: 31/01/2026
+2026-01-09 15:27:08,711 - INFO - 
+Qtde LINHA VIVA: 2486
+2026-01-09 15:27:08,712 - INFO - Qtde LINHA MORTA/PESADA/FAIXA: 87
+2026-01-09 15:27:09,549 - INFO - 
+Arquivo gerado: C:\Users\U469784\venvs\py311\bot_programacao\EXCEL\pendentes_20260109.xlsx
+2026-01-09 15:27:09,908 - INFO - 
+ Qtd de lotes de LM: 4
+2026-01-09 15:27:09,908 - INFO - 
+ Qtd de lotes de LV: 100
+2026-01-09 15:27:09,908 - INFO - 
+=== Iniciando lote 1/4 [LM] ===
+2026-01-09 15:27:52,430 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-01-09 15:28:12,797 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-01-09 15:28:34,353 - INFO - Data hoje: 09/01/2026
+2026-01-09 15:28:34,354 - INFO - Data de referência: 31/01/2026
+2026-01-09 15:28:39,831 - INFO - 
+Qtde LINHA VIVA: 2486
+2026-01-09 15:28:39,831 - INFO - Qtde LINHA MORTA/PESADA/FAIXA: 87
+2026-01-09 15:28:40,577 - INFO - 
+Arquivo gerado: C:\Users\U469784\venvs\py311\bot_programacao\EXCEL\pendentes_20260109.xlsx
+2026-01-09 15:28:40,887 - INFO - 
+ Qtd de lotes de LM: 4
+2026-01-09 15:28:40,887 - INFO - 
+ Qtd de lotes de LV: 100
+2026-01-09 15:28:40,887 - INFO - 
+=== Iniciando lote 1/4 [LM] ===
+2026-01-09 15:29:23,421 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-01-09 15:29:43,775 - INFO - 🟨 Janela de confirmação de programação de OS detectada
+2026-01-09 15:29:47,075 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:30:07,535 - INFO - 🟨 Janela de aviso de edição de OS programadas detectada
+2026-01-09 15:30:11,799 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:30:32,257 - INFO - 🟨 Janela de aviso de substituição de lote de OS detectada
+2026-01-09 15:30:38,510 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:30:58,962 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:31:19,404 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:31:39,845 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 15:32:00,308 - INFO - Janela restaurada
+2026-01-09 15:32:12,778 - INFO - Janela restaurada
+2026-01-09 15:32:12,778 - INFO - ⏱️ Tempo limite atingido. Abortando seleção
+2026-01-09 16:05:13,347 - INFO - Data hoje: 09/01/2026
+2026-01-09 16:05:13,347 - INFO - Data de referência: 31/01/2026
+2026-01-09 16:05:18,816 - INFO - 
+Qtde LINHA VIVA: 2486
+2026-01-09 16:05:18,816 - INFO - Qtde LINHA MORTA/PESADA/FAIXA: 87
+2026-01-09 16:05:19,653 - INFO - 
+Arquivo gerado: C:\Users\U469784\venvs\py311\bot_programacao\EXCEL\pendentes_20260109.xlsx
+2026-01-09 16:05:19,979 - INFO - 
+ Qtd de lotes de LM: 4
+2026-01-09 16:05:19,979 - INFO - 
+ Qtd de lotes de LV: 100
+2026-01-09 16:05:19,979 - INFO - 
+=== Iniciando lote 1/4 [LM] ===
+2026-01-09 16:06:02,489 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-01-09 16:06:22,864 - INFO - 🟨 Janela de confirmação de programação de OS detectada
+2026-01-09 16:06:26,216 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:06:46,778 - INFO - 🟨 Janela de aviso de edição de OS programadas detectada
+2026-01-09 16:06:51,049 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:07:11,519 - INFO - 🟨 Janela de aviso de substituição de lote de OS detectada
+2026-01-09 16:07:17,772 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:07:38,237 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:07:58,715 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:08:19,180 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:08:39,652 - INFO - Janela restaurada
+2026-01-09 16:08:52,120 - INFO - Janela restaurada
+2026-01-09 16:08:52,120 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-09 16:09:12,598 - INFO - 🟨 Janela de programação de lote de OS detectada
+2026-01-09 16:48:22,258 - INFO - Data hoje: 09/01/2026
+2026-01-09 16:48:22,258 - INFO - Data de referência: 31/01/2026
+2026-01-09 16:48:29,111 - INFO - 
+Qtde LINHA VIVA: 2486
+2026-01-09 16:48:29,111 - INFO - Qtde LINHA MORTA/PESADA/FAIXA: 87
+2026-01-09 16:48:29,971 - INFO - 
+Arquivo gerado: C:\Users\U469784\venvs\py311\bot_programacao\EXCEL\pendentes_20260109.xlsx
+2026-01-09 16:48:30,317 - INFO - 
+ Qtd de lotes de LM: 4
+2026-01-09 16:48:30,317 - INFO - 
+ Qtd de lotes de LV: 100
+2026-01-09 16:48:30,317 - INFO - 
+=== Iniciando lote 1/4 [LM] ===
+2026-01-09 16:48:36,700 - INFO - ⌛ Aguardando janela de seleção...
+2026-01-09 16:48:57,075 - INFO - Janela de seleção aberta
+2026-01-09 16:49:01,308 - INFO - DEBUG: idx=0, inicio=0, fim=25
+2026-01-09 16:49:01,308 - INFO - ✅ 25 OS copiadas para a área de transferência.
+2026-01-09 16:49:01,308 - INFO - 📋 Lote 1 copiado.
+2026-01-09 16:49:09,645 - INFO - ✅ Tela carregada!
+2026-01-09 16:49:20,117 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-01-09 16:49:40,487 - INFO - 🟨 Registros desbloqueados com sucesso
+2026-01-09 16:49:54,065 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-01-09 16:50:24,488 - INFO - 🟨 OS programadas detectadas
+2026-01-09 16:50:27,639 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-01-09 16:50:58,009 - INFO - 🟨 Janela de edição de OS detectada

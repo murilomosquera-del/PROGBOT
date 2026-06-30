@@ -1,0 +1,143 @@
+2026-04-29 15:36:29,749 - INFO - Data hoje: 29/04/2026
+2026-04-29 15:36:29,749 - INFO - Data de referência: 30/04/2026
+2026-04-29 15:37:06,881 - INFO - Qtde OS de LINHA VIVA: 12
+2026-04-29 15:37:06,881 - INFO - Qtde OS poda de LINHA MORTA: 1
+2026-04-29 15:37:06,881 - INFO - Qtde OS estrutural de LINHA MORTA : 2
+2026-04-29 15:37:06,881 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 1
+2026-04-29 15:37:06,881 - INFO - Qtde OS para desprogramar: 16
+2026-04-29 15:37:06,881 - INFO - 
+ Qtd de lotes de LM: 1
+2026-04-29 15:37:06,881 - INFO - 
+ Qtd de lotes de LV: 1
+2026-04-29 15:37:06,881 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 1
+2026-04-29 15:37:06,881 - INFO - 
+ Qtd de lotes de LEVE: 1
+2026-04-29 15:37:06,881 - INFO - 
+ Qtd de lotes para desprogramar: 1
+2026-04-29 15:37:06,881 - INFO - 
+=== Iniciando lote 1/1 [LEVE] ===
+2026-04-29 15:37:06,881 - INFO - 
+=== abrir_janela_selecao ===
+2026-04-29 15:37:13,221 - INFO - 
+=== rotina abrir_selecao_colar_os ===
+2026-04-29 15:37:13,330 - INFO - Janela de seleção aberta
+2026-04-29 15:37:17,589 - INFO - DEBUG: idx=0, inicio=0, fim=50
+2026-04-29 15:37:17,589 - INFO - ✅ 1 OS copiadas para a área de transferência.
+2026-04-29 15:37:17,589 - INFO - 📋 Lote 1 copiado.
+2026-04-29 15:37:40,096 - INFO - Data hoje: 29/04/2026
+2026-04-29 15:37:40,096 - INFO - Data de referência: 30/04/2026
+2026-04-29 15:38:21,038 - INFO - Qtde OS de LINHA VIVA: 12
+2026-04-29 15:38:21,038 - INFO - Qtde OS poda de LINHA MORTA: 1
+2026-04-29 15:38:21,038 - INFO - Qtde OS estrutural de LINHA MORTA : 2
+2026-04-29 15:38:21,038 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 1
+2026-04-29 15:38:21,038 - INFO - Qtde OS para desprogramar: 16
+2026-04-29 15:38:21,038 - INFO - 
+ Qtd de lotes de LM: 1
+2026-04-29 15:38:21,038 - INFO - 
+ Qtd de lotes de LV: 1
+2026-04-29 15:38:21,038 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 1
+2026-04-29 15:38:21,038 - INFO - 
+ Qtd de lotes de LEVE: 1
+2026-04-29 15:38:21,038 - INFO - 
+ Qtd de lotes para desprogramar: 1
+2026-04-29 15:38:21,038 - INFO - 
+=== Iniciando lote 1/1 [LEVE] ===
+2026-04-29 15:38:21,038 - INFO - 
+=== abrir_janela_selecao ===
+2026-04-29 15:38:27,374 - INFO - 
+=== rotina abrir_selecao_colar_os ===
+2026-04-29 15:38:27,456 - INFO - Janela de seleção aberta
+2026-04-29 15:38:31,695 - INFO - DEBUG: idx=0, inicio=0, fim=50
+2026-04-29 15:38:31,695 - INFO - ✅ 1 OS copiadas para a área de transferência.
+2026-04-29 15:38:31,695 - INFO - 📋 Lote 1 copiado.
+2026-04-29 15:38:40,022 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:41,038 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:42,041 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:43,049 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:44,084 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:45,097 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:46,113 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:47,132 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:48,150 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:49,162 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:50,187 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:51,190 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:52,211 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 15:38:53,235 - INFO - ✅ Tela carregada!
+2026-04-29 15:38:57,238 - INFO - 
+=== rotina desbloquear_os ===
+2026-04-29 15:53:34,808 - INFO - Data hoje: 29/04/2026
+2026-04-29 15:53:34,808 - INFO - Data de referência: 30/04/2026
+2026-04-29 15:57:18,409 - INFO - Data hoje: 29/04/2026
+2026-04-29 15:57:18,410 - INFO - Data de referência: 30/04/2026
+2026-04-29 15:58:25,418 - INFO - Data hoje: 29/04/2026
+2026-04-29 15:58:25,418 - INFO - Data de referência: 30/04/2026
+2026-04-29 16:00:13,706 - INFO - Qtde OS de LINHA VIVA: 3429
+2026-04-29 16:00:13,706 - INFO - Qtde OS poda de LINHA MORTA: 1178
+2026-04-29 16:00:13,706 - INFO - Qtde OS estrutural de LINHA MORTA : 17114
+2026-04-29 16:00:13,706 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 372
+2026-04-29 16:00:13,706 - INFO - Qtde OS para desprogramar: 1893
+2026-04-29 16:00:13,706 - INFO - 
+ Qtd de lotes de LM: 24
+2026-04-29 16:00:13,706 - INFO - 
+ Qtd de lotes de LV: 69
+2026-04-29 16:00:13,706 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 343
+2026-04-29 16:00:13,706 - INFO - 
+ Qtd de lotes de LEVE: 8
+2026-04-29 16:00:13,706 - INFO - 
+ Qtd de lotes para desprogramar: 38
+2026-04-29 16:00:13,708 - INFO - 
+=== Iniciando lote 1/24 [LM] ===
+2026-04-29 16:00:13,708 - INFO - 
+=== abrir_janela_selecao ===
+2026-04-29 16:00:20,021 - INFO - 
+=== rotina abrir_selecao_colar_os ===
+2026-04-29 16:00:20,172 - INFO - Janela de seleção aberta
+2026-04-29 16:00:24,423 - INFO - DEBUG: idx=0, inicio=0, fim=50
+2026-04-29 16:00:24,423 - INFO - ✅ 50 OS copiadas para a área de transferência.
+2026-04-29 16:00:24,423 - INFO - 📋 Lote 1 copiado.
+2026-04-29 16:00:32,766 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 16:00:33,779 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 16:00:34,784 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 16:00:35,791 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 16:00:36,805 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 16:00:37,820 - INFO - ⌛ Esperando mudança visual...
+2026-04-29 16:00:38,832 - INFO - ✅ Tela carregada!
+2026-04-29 16:00:42,843 - INFO - 
+=== rotina desbloquear_os ===
+2026-04-29 16:00:49,352 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-04-29 16:01:04,878 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-04-29 16:01:20,377 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-04-29 16:01:35,951 - INFO - 🟨 Registros desbloqueados com sucesso
+2026-04-29 16:01:40,057 - INFO - 
+=== rotina editar_os ===
+2026-04-29 16:01:49,494 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-04-29 16:02:05,008 - INFO - 🟨 OS programadas detectadas
+2026-04-29 16:02:08,113 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-04-29 16:02:23,676 - INFO - 🟨 Janela de edição de OS detectada
+2026-04-29 16:02:45,056 - INFO - 🟨 Janela de edição de habilidade da turma detectada
+2026-04-29 16:04:03,383 - INFO - ⌛ Aguardando detecção do campo de caracteristica 'EQUIPE PRÓPRIA OU EPS' ...
+2026-04-29 16:04:22,759 - INFO - 🟨 campo de caracteristica 'EQUIPE PRÓPRIA OU EPS detectado
+2026-04-29 16:04:44,798 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:05:00,602 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:05:00,920 - INFO - 🟨 Identificado travamento no EQM, reiniciando contador de espera
+2026-04-29 16:05:16,598 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:05:16,867 - INFO - 🟨 Identificado travamento no EQM, reiniciando contador de espera
+2026-04-29 16:05:32,501 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:05:32,745 - INFO - 🟨 Identificado travamento no EQM, reiniciando contador de espera
+2026-04-29 16:05:48,240 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:06:03,824 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:06:19,472 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:06:35,157 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-04-29 16:06:50,840 - INFO - 🟨 Janela de confirmação 4 de edição de OS detectada
+2026-04-29 16:06:54,963 - INFO - 
+=== rotina programar_os ===
+2026-04-29 16:07:21,531 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-04-29 16:07:47,023 - INFO - 🟨 Janela de confirmação de programação de OS detectada
+2026-04-29 16:08:00,338 - INFO - 🟨 Janela de aviso de edição de OS programadas detectada
+2026-04-29 16:08:07,547 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-04-29 16:08:33,188 - INFO - 🟨 Janela de aviso de substituição de lote de OS detectada
+2026-04-29 16:08:53,304 - INFO - ⌛ aguardando janela de programação de lote de OS...

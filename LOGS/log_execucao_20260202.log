@@ -1,0 +1,39 @@
+2026-02-02 12:09:28,042 - INFO - Data hoje: 02/02/2026
+2026-02-02 12:09:28,042 - INFO - Data de referência: 28/02/2026
+2026-02-02 12:10:37,014 - INFO - 
+Qtde OS de LINHA VIVA: 3278
+2026-02-02 12:10:37,014 - INFO - Qtde OS poda de LINHA MORTA: 1258
+2026-02-02 12:10:37,014 - INFO - 
+Qtde OS estrutural de LINHA MORTA : 252
+2026-02-02 12:10:37,015 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 1243
+2026-02-02 12:10:37,015 - INFO - Qtde OS para desprogramar: 707
+2026-02-02 12:10:37,016 - INFO - 
+ Qtd de lotes de LM: 51
+2026-02-02 12:10:37,016 - INFO - 
+ Qtd de lotes de LV: 132
+2026-02-02 12:10:37,018 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 11
+2026-02-02 12:10:37,018 - INFO - 
+ Qtd de lotes de LEVE: 50
+2026-02-02 12:10:37,018 - INFO - 
+ Qtd de lotes para desprogramar: 29
+2026-02-02 12:10:37,018 - INFO - 
+=== Iniciando lote 1/50 [LEVE] ===
+2026-02-02 12:10:43,464 - INFO - Janela de seleção aberta
+2026-02-02 12:10:47,696 - INFO - DEBUG: idx=0, inicio=0, fim=25
+2026-02-02 12:10:47,697 - INFO - ✅ 25 OS copiadas para a área de transferência.
+2026-02-02 12:10:47,697 - INFO - 📋 Lote 1 copiado.
+2026-02-02 12:10:56,033 - INFO - ⌛ Esperando mudança visual...
+2026-02-02 12:10:57,047 - INFO - ✅ Tela carregada!
+2026-02-02 12:11:07,540 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-02-02 12:11:17,887 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-02-02 12:11:28,230 - INFO - 🟨 Registros desbloqueados com sucesso
+2026-02-02 12:11:41,791 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-02-02 12:11:57,195 - INFO - 🟨 OS programadas detectadas
+2026-02-02 12:12:00,347 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-02-02 12:12:15,746 - INFO - 🟨 Janela de edição de OS detectada
+2026-02-02 12:12:37,108 - INFO - 🟨 Janela de edição de habilidade da turma detectada
+2026-02-02 12:13:25,411 - INFO - ⌛ Aguardando detecção do campo de caracteristica 'EQUIPE PRÓPRIA OU EPS' ...
+2026-02-02 12:13:44,775 - INFO - 🟨 campo de caracteristica 'EQUIPE PRÓPRIA OU EPS detectado
+2026-02-02 12:14:06,506 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-02-02 12:14:22,014 - INFO - ⌛ Aguardando confirmação 4 - editar OS...

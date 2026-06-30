@@ -1,0 +1,110 @@
+2026-01-20 15:54:48,699 - INFO - Data hoje: 20/01/2026
+2026-01-20 15:54:48,699 - INFO - Data de referência: 31/01/2026
+2026-01-20 15:56:50,487 - INFO - 
+Qtde OS de LINHA VIVA: 3611
+2026-01-20 15:56:50,487 - INFO - Qtde OS poda de LINHA MORTA: 1532
+2026-01-20 15:56:50,487 - INFO - 
+Qtde OS estrutural de LINHA MORTA : 50
+2026-01-20 15:56:50,487 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2452
+2026-01-20 15:56:50,487 - INFO - 
+ Qtd de lotes de LM: 62
+2026-01-20 15:56:50,487 - INFO - 
+ Qtd de lotes de LV: 145
+2026-01-20 15:56:50,487 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 2
+2026-01-20 15:56:50,487 - INFO - 
+ Qtd de lotes de LEVE: 99
+2026-01-20 15:56:50,487 - INFO - 
+=== Iniciando lote 1/2 [REDES] ===
+2026-01-20 17:06:20,821 - INFO - Data hoje: 20/01/2026
+2026-01-20 17:06:20,821 - INFO - Data de referência: 31/01/2026
+2026-01-20 17:08:37,250 - INFO - Data hoje: 20/01/2026
+2026-01-20 17:08:37,251 - INFO - Data de referência: 31/01/2026
+2026-01-20 17:10:28,707 - INFO - 
+Qtde OS de LINHA VIVA: 3
+2026-01-20 17:10:28,707 - INFO - Qtde OS poda de LINHA MORTA: 5
+2026-01-20 17:10:28,707 - INFO - 
+Qtde OS estrutural de LINHA MORTA : 50
+2026-01-20 17:10:28,707 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2452
+2026-01-20 17:10:28,707 - INFO - 
+ Qtd de lotes de LM: 1
+2026-01-20 17:10:28,707 - INFO - 
+ Qtd de lotes de LV: 1
+2026-01-20 17:10:28,707 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 2
+2026-01-20 17:10:28,707 - INFO - 
+ Qtd de lotes de LEVE: 99
+2026-01-20 17:10:28,709 - INFO - 
+=== Iniciando lote 1/2 [REDES] ===
+2026-01-20 17:10:35,191 - INFO - ⌛ Aguardando janela de seleção...
+2026-01-20 17:10:55,599 - INFO - Janela de seleção aberta
+2026-01-20 17:10:59,849 - INFO - DEBUG: idx=0, inicio=0, fim=25
+2026-01-20 17:10:59,849 - INFO - ✅ 25 OS copiadas para a área de transferência.
+2026-01-20 17:10:59,849 - INFO - 📋 Lote 1 copiado.
+2026-01-20 17:15:04,016 - INFO - Data hoje: 20/01/2026
+2026-01-20 17:15:04,017 - INFO - Data de referência: 31/01/2026
+2026-01-20 17:17:25,051 - INFO - 
+Qtde OS de LINHA VIVA: 3615
+2026-01-20 17:17:25,051 - INFO - Qtde OS poda de LINHA MORTA: 1537
+2026-01-20 17:17:25,051 - INFO - 
+Qtde OS estrutural de LINHA MORTA : 50
+2026-01-20 17:17:25,051 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2452
+2026-01-20 17:17:25,051 - INFO - 
+ Qtd de lotes de LM: 62
+2026-01-20 17:17:25,051 - INFO - 
+ Qtd de lotes de LV: 145
+2026-01-20 17:17:25,051 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 2
+2026-01-20 17:17:25,051 - INFO - 
+ Qtd de lotes de LEVE: 99
+2026-01-20 17:17:25,051 - INFO - 
+=== Iniciando lote 1/2 [REDES] ===
+2026-01-20 17:17:31,455 - INFO - Janela de seleção aberta
+2026-01-20 17:17:35,716 - INFO - DEBUG: idx=0, inicio=0, fim=25
+2026-01-20 17:17:35,716 - INFO - ✅ 25 OS copiadas para a área de transferência.
+2026-01-20 17:17:35,716 - INFO - 📋 Lote 1 copiado.
+2026-01-20 17:17:44,050 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:17:45,057 - INFO - ✅ Tela carregada!
+2026-01-20 17:17:55,535 - INFO - ⌛ Aguardando janela de confirmação de desbloqueio...
+2026-01-20 17:18:15,880 - INFO - 🟨 Registros desbloqueados com sucesso
+2026-01-20 17:18:29,497 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-01-20 17:18:59,885 - INFO - 🟨 OS programadas detectadas
+2026-01-20 17:19:03,037 - INFO - ⌛ Aguardando janela de edição de OS...
+2026-01-20 17:19:33,499 - INFO - 🟨 Janela de edição de OS detectada
+2026-01-20 17:19:54,853 - INFO - 🟨 Janela de edição de habilidade da turma detectada
+2026-01-20 17:20:43,191 - INFO - ⌛ Aguardando detecção do campo de caracteristica 'EQUIPE PRÓPRIA OU EPS' ...
+2026-01-20 17:21:15,466 - INFO - ⌛ Aguardando detecção do campo de caracteristica 'EQUIPE PRÓPRIA OU EPS' ...
+2026-01-20 17:21:47,720 - INFO - 🟨 campo de caracteristica 'EQUIPE PRÓPRIA OU EPS detectado
+2026-01-20 17:22:09,449 - INFO - ⌛ Aguardando confirmação 4 - editar OS...
+2026-01-20 17:23:20,420 - INFO - ⌛ Aguardando janela de confirmação de programação de OS...
+2026-01-20 17:23:40,784 - INFO - 🟨 Janela de confirmação de programação de OS detectada
+2026-01-20 17:23:44,111 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-20 17:24:04,622 - INFO - 🟨 Janela de aviso de edição de OS programadas detectada
+2026-01-20 17:24:08,924 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-20 17:24:29,394 - INFO - 🟨 Janela de aviso de substituição de lote de OS detectada
+2026-01-20 17:24:35,667 - INFO - ⌛ aguardando janela de programação de lote de OS...
+2026-01-20 17:24:56,108 - INFO - 🟨 Janela de programação de lote de OS detectada
+2026-01-20 17:25:23,580 - INFO - ⌛ aguardando janela de confirmação de programação de lote de OS...
+2026-01-20 17:25:43,960 - INFO - 🟨 Janela de confirmação de programação de lote de OS detectada
+2026-01-20 17:25:48,277 - INFO - ⌛ aguardando confirmação final de programação do lote
+2026-01-20 17:26:08,716 - INFO - 🟨 programação do lote 1 efetuado com sucesso
+2026-01-20 17:26:18,889 - INFO - 
+=== Iniciando lote 2/2 [REDES] ===
+2026-01-20 17:26:25,267 - INFO - Janela de seleção aberta
+2026-01-20 17:26:29,512 - INFO - DEBUG: idx=1, inicio=25, fim=50
+2026-01-20 17:26:29,512 - INFO - ✅ 25 OS copiadas para a área de transferência.
+2026-01-20 17:26:29,512 - INFO - 📋 Lote 2 copiado.
+2026-01-20 17:26:37,845 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:38,856 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:39,862 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:40,870 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:41,898 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:42,901 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:43,919 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:44,932 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:45,948 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:46,966 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:47,978 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:48,991 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:50,012 - INFO - ⌛ Esperando mudança visual...
+2026-01-20 17:26:51,032 - INFO - ✅ Tela carregada!

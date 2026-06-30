@@ -1,0 +1,129 @@
+2026-03-06 11:53:21,511 - INFO - Data hoje: 06/03/2026
+2026-03-06 11:53:21,511 - INFO - Data de referência: 31/03/2026
+2026-03-06 14:22:06,782 - INFO - Data hoje: 06/03/2026
+2026-03-06 14:22:06,782 - INFO - Data de referência: 31/03/2026
+2026-03-06 14:23:21,263 - INFO - Qtde OS de LINHA VIVA: 2071
+2026-03-06 14:23:21,263 - INFO - Qtde OS poda de LINHA MORTA: 471
+2026-03-06 14:23:21,263 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 14:23:21,263 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2827
+2026-03-06 14:23:21,263 - INFO - Qtde OS para desprogramar: 828
+2026-03-06 14:23:21,263 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 14:23:21,263 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 14:23:21,263 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 14:23:21,263 - INFO - 
+ Qtd de lotes de LEVE: 114
+2026-03-06 14:23:21,263 - INFO - 
+ Qtd de lotes para desprogramar: 34
+2026-03-06 14:23:21,263 - INFO - 
+=== Iniciando lote 1/19 [LM] ===
+2026-03-06 16:07:57,753 - INFO - Data hoje: 06/03/2026
+2026-03-06 16:07:57,753 - INFO - Data de referência: 31/03/2026
+2026-03-06 16:09:11,661 - INFO - Data hoje: 06/03/2026
+2026-03-06 16:09:11,661 - INFO - Data de referência: 31/03/2026
+2026-03-06 16:09:42,222 - INFO - Data hoje: 06/03/2026
+2026-03-06 16:09:42,223 - INFO - Data de referência: 31/03/2026
+2026-03-06 16:10:10,940 - INFO - Data hoje: 06/03/2026
+2026-03-06 16:10:10,940 - INFO - Data de referência: 31/03/2026
+2026-03-06 16:11:22,362 - INFO - Qtde OS de LINHA VIVA: 2074
+2026-03-06 16:11:22,362 - INFO - Qtde OS poda de LINHA MORTA: 473
+2026-03-06 16:11:22,362 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 16:11:22,362 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2799
+2026-03-06 16:11:22,362 - INFO - Qtde OS para desprogramar: 827
+2026-03-06 16:11:22,362 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 16:11:22,362 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 16:11:22,362 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 16:11:22,362 - INFO - 
+ Qtd de lotes de LEVE: 112
+2026-03-06 16:11:22,362 - INFO - 
+ Qtd de lotes para desprogramar: 34
+2026-03-06 16:35:59,428 - INFO - Data hoje: 06/03/2026
+2026-03-06 16:35:59,428 - INFO - Data de referência: 31/03/2026
+2026-03-06 16:37:22,436 - INFO - Qtde OS de LINHA VIVA: 2074
+2026-03-06 16:37:22,436 - INFO - Qtde OS poda de LINHA MORTA: 473
+2026-03-06 16:37:22,436 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 16:37:22,436 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2799
+2026-03-06 16:37:22,436 - INFO - Qtde OS para desprogramar: 826
+2026-03-06 16:37:22,436 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 16:37:22,436 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 16:37:22,436 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 16:37:22,436 - INFO - 
+ Qtd de lotes de LEVE: 112
+2026-03-06 16:37:22,436 - INFO - 
+ Qtd de lotes para desprogramar: 34
+2026-03-06 16:42:33,361 - INFO - Data hoje: 06/03/2026
+2026-03-06 16:42:33,361 - INFO - Data de referência: 31/03/2026
+2026-03-06 16:43:57,753 - INFO - Qtde OS de LINHA VIVA: 2074
+2026-03-06 16:43:57,754 - INFO - Qtde OS poda de LINHA MORTA: 473
+2026-03-06 16:43:57,754 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 16:43:57,754 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2799
+2026-03-06 16:43:57,754 - INFO - Qtde OS para desprogramar: 826
+2026-03-06 16:43:57,755 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 16:43:57,755 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 16:43:57,755 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 16:43:57,755 - INFO - 
+ Qtd de lotes de LEVE: 112
+2026-03-06 16:43:57,755 - INFO - 
+ Qtd de lotes para desprogramar: 34
+2026-03-06 17:23:56,394 - INFO - Data hoje: 06/03/2026
+2026-03-06 17:23:56,394 - INFO - Data de referência: 31/03/2026
+2026-03-06 17:25:10,196 - INFO - Qtde OS de LINHA VIVA: 2074
+2026-03-06 17:25:10,196 - INFO - Qtde OS poda de LINHA MORTA: 473
+2026-03-06 17:25:10,196 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 17:25:10,196 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2799
+2026-03-06 17:25:10,196 - INFO - Qtde OS para desprogramar: 826
+2026-03-06 17:25:10,196 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 17:25:10,196 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 17:25:10,196 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 17:25:10,196 - INFO - 
+ Qtd de lotes de LEVE: 112
+2026-03-06 17:25:10,196 - INFO - 
+ Qtd de lotes para desprogramar: 34
+2026-03-06 17:36:54,906 - INFO - Data hoje: 06/03/2026
+2026-03-06 17:36:54,906 - INFO - Data de referência: 31/03/2026
+2026-03-06 17:38:11,212 - INFO - Qtde OS de LINHA VIVA: 2074
+2026-03-06 17:38:11,212 - INFO - Qtde OS poda de LINHA MORTA: 473
+2026-03-06 17:38:11,212 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 17:38:11,212 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2799
+2026-03-06 17:38:11,212 - INFO - Qtde OS para desprogramar: 826
+2026-03-06 17:38:11,212 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 17:38:11,212 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 17:38:11,213 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 17:38:11,213 - INFO - 
+ Qtd de lotes de LEVE: 112
+2026-03-06 17:38:11,213 - INFO - 
+ Qtd de lotes para desprogramar: 34
+2026-03-06 17:45:58,553 - INFO - Data hoje: 06/03/2026
+2026-03-06 17:45:58,553 - INFO - Data de referência: 31/03/2026
+2026-03-06 17:47:23,530 - INFO - Qtde OS de LINHA VIVA: 2074
+2026-03-06 17:47:23,530 - INFO - Qtde OS poda de LINHA MORTA: 473
+2026-03-06 17:47:23,530 - INFO - Qtde OS estrutural de LINHA MORTA : 136
+2026-03-06 17:47:23,530 - INFO - Qtde OS poda de LINHA MORTA fora carteira: 2799
+2026-03-06 17:47:23,530 - INFO - Qtde OS para desprogramar: 826
+2026-03-06 17:47:23,531 - INFO - 
+ Qtd de lotes de LM: 19
+2026-03-06 17:47:23,531 - INFO - 
+ Qtd de lotes de LV: 83
+2026-03-06 17:47:23,531 - INFO - 
+ Qtd de lotes de ESTRUTURAL LM: 6
+2026-03-06 17:47:23,531 - INFO - 
+ Qtd de lotes de LEVE: 112
+2026-03-06 17:47:23,531 - INFO - 
+ Qtd de lotes para desprogramar: 34
