@@ -7,8 +7,9 @@ Automação em Python para apoio à programação de atividades de manutenção 
 
 - Python
 - Pandas
-- Selenium
 - OpenPyXL
+- PyAutoGUI
+- pyperclip
 
 ## Autor
 
