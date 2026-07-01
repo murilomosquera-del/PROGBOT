@@ -307,7 +307,7 @@ df_eqm = pd.read_csv(
 
 
 FILTRO_EQM= (
-  ~df_eqm['TIPO_DEFEITO'].eq('EXTRAS') &
+   df_eqm['TIPO_DEFEITO'].isin(['FAIXA','PODA','ESTRUTURAL']) &
    df_eqm['BOOLEAN_STATUS'].eq(0) &
   ~df_eqm['DEFEITO'].eq('MANUTENÇÃO COM TURMA PODA') &
   ~df_eqm['DEFEITO'].str.contains('cadastro', case=False, na=False) &
