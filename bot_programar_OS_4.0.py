@@ -813,25 +813,133 @@ def verificar_bloqueio_click() -> int:
 
 # === Copiar lote de OS =================================================================================================================
 
-def copiar_os_do_arquivo(df_os, idx):
+# def copiar_os_do_arquivo(df_os, idx):
     
     
-    inicio = idx * lote_size
-    fim = inicio + lote_size
-    df_lote = df_os.iloc[inicio:fim]
+#     inicio = idx * lote_size
+#     fim = inicio + lote_size
+#     df_lote = df_os.iloc[inicio:fim]
 
-    dados = df_lote['OS_CORRECAO'].dropna().astype(str).str.strip().tolist()
+#     dados = df_lote['OS_CORRECAO'].dropna().astype(str).str.strip().tolist()
+#     texto_para_copiar = "\n".join(dados)
+#     pyperclip.copy(texto_para_copiar)
+
+    
+#     print(f"DEBUG: idx={idx}, inicio={inicio}, fim={fim}")
+#     print(f"✅ {len(dados)} OS copiadas para a área de transferência.")
+#     print(f"📋 Lote {idx+1} copiado.")
+#     logging.info(f"DEBUG: idx={idx}, inicio={inicio}, fim={fim}")
+#     logging.info(f"✅ {len(dados)} OS copiadas para a área de transferência.")
+#     logging.info(f"📋 Lote {idx+1} copiado.")
+
+def copiar_os_do_arquivo(df_os, idx):
+    """
+    Copia as OS correspondentes ao lote atual.
+
+    Regra especial:
+    Quando a divisão em lotes de 25 deixa somente 1 OS no último lote,
+    os dois últimos lotes são redistribuídos.
+
+    Exemplo:
+        Antes: 25 + 25 + 1
+        Depois: 25 + 24 + 2
+    """
+
+    total_os = len(df_os)
+
+    if total_os == 0:
+        print("🛑 Não existem OS para copiar.")
+        logging.warning("Não existem OS para copiar.")
+        pyperclip.copy("")
+        return
+
+    # Calcula a quantidade total de lotes
+    num_lotes = (
+        total_os // lote_size
+        + int(total_os % lote_size > 0)
+    )
+
+    # Verifica se o último lote ficaria com somente 1 OS
+    ultimo_lote_com_uma_os = (
+        total_os > 1
+        and total_os % lote_size == 1
+    )
+
+    if ultimo_lote_com_uma_os and idx == num_lotes - 2:
+        # Penúltimo lote:
+        # cede uma OS para o último lote.
+        #
+        # Exemplo com 51 OS:
+        # normalmente seria 25:50, totalizando 25 OS;
+        # passa a ser 25:49, totalizando 24 OS.
+        inicio = idx * lote_size
+        fim = total_os - 2
+
+        print(
+            "🟨 Redistribuição aplicada no penúltimo lote: "
+            "uma OS foi transferida para o último lote."
+        )
+        logging.info(
+            "Redistribuição aplicada no penúltimo lote: "
+            "uma OS foi transferida para o último lote."
+        )
+
+    elif ultimo_lote_com_uma_os and idx == num_lotes - 1:
+        # Último lote:
+        # recebe a última OS do penúltimo lote.
+        #
+        # Exemplo com 51 OS:
+        # normalmente seria 50:51, totalizando 1 OS;
+        # passa a ser 49:51, totalizando 2 OS.
+        inicio = total_os - 2
+        fim = total_os
+
+        print(
+            "🟨 Redistribuição aplicada no último lote: "
+            "o lote será processado com 2 OS."
+        )
+        logging.info(
+            "Redistribuição aplicada no último lote: "
+            "o lote será processado com 2 OS."
+        )
+
+    else:
+        # Divisão normal em lotes de até 25 OS
+        inicio = idx * lote_size
+        fim = min(inicio + lote_size, total_os)
+
+    df_lote = df_os.iloc[inicio:fim].copy()
+
+    dados = (
+        df_lote["OS_CORRECAO"]
+        .dropna()
+        .astype(str)
+        .str.strip()
+        .tolist()
+    )
+
     texto_para_copiar = "\n".join(dados)
     pyperclip.copy(texto_para_copiar)
 
-    
-    print(f"DEBUG: idx={idx}, inicio={inicio}, fim={fim}")
-    print(f"✅ {len(dados)} OS copiadas para a área de transferência.")
-    print(f"📋 Lote {idx+1} copiado.")
-    logging.info(f"DEBUG: idx={idx}, inicio={inicio}, fim={fim}")
-    logging.info(f"✅ {len(dados)} OS copiadas para a área de transferência.")
-    logging.info(f"📋 Lote {idx+1} copiado.")
+    print(
+        f"DEBUG: idx={idx}, início={inicio}, fim={fim}, "
+        f"total_os={total_os}, num_lotes={num_lotes}"
+    )
+    print(
+        f"✅ {len(dados)} OS copiadas para a área de transferência."
+    )
+    print(f"📋 Lote {idx + 1}/{num_lotes} copiado.")
 
+    logging.info(
+        f"DEBUG: idx={idx}, início={inicio}, fim={fim}, "
+        f"total_os={total_os}, num_lotes={num_lotes}"
+    )
+    logging.info(
+        f"{len(dados)} OS copiadas para a área de transferência."
+    )
+    logging.info(
+        f"Lote {idx + 1}/{num_lotes} copiado."
+    )
 
 # === abrir janela de pesquisa avançada de OS =======================================================================================
 
@@ -1260,15 +1368,6 @@ def editar_os(label):
         # Verifica se a tentativa de editar encontrou uma OS ainda bloqueada
         if verificar_bloqueio_click():
           return RESULTADO_EDICAO_REPETIR_DESBLOQUEIO
-
-        if flag_erro == 1:
-          pyautogui.click(posicao_10)
-          time.sleep(5)
-          pyautogui.hotkey('ctrl','a')
-          time.sleep(2)
-          pyautogui.click(posicao_15)
-          time.sleep(2)
-          flag_erro = 0
         
         if flag_erro == 1:
           pyautogui.click(posicao_10)
@@ -1567,7 +1666,9 @@ def editar_os(label):
         time.sleep(intervalo_seg)
         pyautogui.click(posicao_10)
 
-        return RESULTADO_EDICAO_SUCESSO
+    return RESULTADO_EDICAO_SUCESSO
+
+
 
 
 
@@ -2012,93 +2113,154 @@ def programar_os(idx):
 # === rotina do robô ===
   
 
+# === rotina do robô ===
 def processar_lotes(df_os, num_lotes, label, start_lote=1):
-  
-  
-  # usar para testar rotinas | 1 para pular rotina
-  pular1 = 0
-  pular2 = 0
-  pular3 = 0
-  pular4 = 0
-  pular5 = 0
-  
 
-  for idx in range(start_lote-1,num_lotes):
-   
-   
+    # Usar para testar rotinas: 1 para pular a rotina
+    pular1 = 0
+    pular2 = 0
+    pular3 = 0
+    pular4 = 0
+    pular5 = 0
 
-   print(f"\n=== Iniciando lote {idx+1}/{num_lotes} [{label}] ===")
-   logging.info(f"\n=== Iniciando lote {idx+1}/{num_lotes} [{label}] ===")
+    for idx in range(start_lote - 1, num_lotes):
 
-  
+        print(f"\n=== Iniciando lote {idx + 1}/{num_lotes} [{label}] ===")
+        logging.info(
+            f"\n=== Iniciando lote {idx + 1}/{num_lotes} [{label}] ==="
+        )
 
-   if pular1 == 1:
-    print("🛑 Interrupção manual 1 detectada. Pulando etapa.")
-   else:
-    print(f"\n=== rotina abrir_janela_selecao ===")
-    logging.info(f"\n=== abrir_janela_selecao ===")
-    abrir_janela_selecao()
+        if pular1 == 1:
+            print("🛑 Interrupção manual 1 detectada. Pulando etapa.")
+        else:
+            print("\n=== rotina abrir_janela_selecao ===")
+            logging.info("\n=== rotina abrir_janela_selecao ===")
+            abrir_janela_selecao()
 
-   
-   if pular2 == 1:
-    print("🛑 Interrupção manual 2 detectada. Pulando etapa.")
-   else:
-    print(f"\n=== rotina abrir_selecao_colar_os ===")
-    logging.info(f"\n=== rotina abrir_selecao_colar_os ===")
-    abrir_selecao_colar_os(df_os, idx)
+        if pular2 == 1:
+            print("🛑 Interrupção manual 2 detectada. Pulando etapa.")
+        else:
+            print("\n=== rotina abrir_selecao_colar_os ===")
+            logging.info("\n=== rotina abrir_selecao_colar_os ===")
+            abrir_selecao_colar_os(df_os, idx)
 
-   time.sleep(2)
+        time.sleep(2)
 
-# === desbloquear o lote de OS ===
+        # === desbloquear o lote de OS ===
+        if pular3 == 1:
+            print("🛑 Interrupção manual 3 detectada. Pulando etapa.")
+        else:
+            print("\n=== rotina desbloquear_os ===")
+            logging.info("\n=== rotina desbloquear_os ===")
+            desbloquear_os()
 
-   if pular3 == 1:
-    print("🛑 Interrupção manual 3 detectada. Pulando etapa.")
-   else:
-    print(f"\n=== rotina desbloquear_os ===")
-    logging.info(f"\n=== rotina desbloquear_os ===")
-    desbloquear_os()
+        time.sleep(2)
 
-   time.sleep(2)
+        # Resultado inicial para evitar variável não inicializada
+        resultado_edicao = RESULTADO_EDICAO_SUCESSO
 
-  #  if pular4 == 1:
-  #    print("🛑 Interrupção manual 4 detectada. Pulando etapa.")
-  #  else:
-  #    print(f"\n=== rotina editar_os ===")
-  #    logging.info(f"\n=== rotina editar_os ===")
-  #    flag_pular_lote = editar_os(label)
-  #    time.sleep(2)
-  #  if pular5 or flag_pular_lote:
-  #   print("🛑 Interrupção 5 detectada. Pulando etapa.")
-  #  else:
-  #   print(f"\n=== rotina programar_os ===")
-  #   logging.info(f"\n=== rotina programar_os ===")
-  #   programar_os(idx)
+        if pular4 == 1:
+            print("🛑 Interrupção manual 4 detectada. Pulando etapa.")
+        else:
+            print("\n=== rotina editar_os ===")
+            logging.info("\n=== rotina editar_os ===")
 
-   # Define um resultado inicial para evitar variável não inicializada
-   resultado_edicao = RESULTADO_EDICAO_SUCESSO
+            tentativa_desbloqueio = 0
 
-   if pular4 == 1:
-    print("🛑 Interrupção manual 4 detectada. Pulando etapa.")
-   else:
-    print(f"\n=== rotina editar_os ===")
-    logging.info(f"\n=== rotina editar_os ===")
+            while True:
 
-    tentativa_desbloqueio = 0
+                resultado_edicao = editar_os(label)
 
-    while True:
+                # Edição concluída normalmente
+                if resultado_edicao == RESULTADO_EDICAO_SUCESSO:
+                    print("✅ Edição do lote concluída com sucesso.")
+                    logging.info("Edição do lote concluída com sucesso.")
+                    break
 
-     resultado_edicao = editar_os(label)
+                # Contrato não vigente, recurso bloqueado
+                # ou outro impedimento definitivo
+                if resultado_edicao == RESULTADO_EDICAO_PULAR_LOTE:
+                    print(
+                        "🛑 Impedimento detectado durante a edição. "
+                        "Pulando o lote."
+                    )
+                    logging.warning(
+                        "Impedimento detectado durante a edição. "
+                        "Pulando o lote."
+                    )
+                    break
 
-     # Edição concluída normalmente
-     if resultado_edicao == RESULTADO_EDICAO_SUCESSO:
-      print("✅ Edição do lote concluída com sucesso.")
-      logging.info("Edição do lote concluída com sucesso.")
-      break
+                # O EQM informou que a OS continua bloqueada
+                if (
+                    resultado_edicao
+                    == RESULTADO_EDICAO_REPETIR_DESBLOQUEIO
+                ):
+                    tentativa_desbloqueio += 1
 
-     # Contrato não vigente, recurso bloqueado ou outro impedimento definitivo
-     if resultado_edicao == RESULTADO_EDICAO_PULAR_LOTE:
-      print("🛑 Impedimento detectado durante a edição. Pulando o lote.")
-      logging.warning("🛑 Impedimento detectado durante a edição. Pulando o lote.")
+                    print(
+                        f"🟨 Repetindo o desbloqueio do lote. "
+                        f"Tentativa {tentativa_desbloqueio}/"
+                        f"{MAX_TENTATIVAS_DESBLOQUEIO}."
+                    )
+                    logging.warning(
+                        f"Repetindo o desbloqueio do lote. "
+                        f"Tentativa {tentativa_desbloqueio}/"
+                        f"{MAX_TENTATIVAS_DESBLOQUEIO}."
+                    )
+
+                    if (
+                        tentativa_desbloqueio
+                        >= MAX_TENTATIVAS_DESBLOQUEIO
+                    ):
+                        print(
+                            "🛑 Limite de tentativas de desbloqueio "
+                            "atingido. O lote será pulado."
+                        )
+                        logging.error(
+                            "Limite de tentativas de desbloqueio "
+                            "atingido. O lote será pulado."
+                        )
+
+                        tirar_print()
+
+                        resultado_edicao = (
+                            RESULTADO_EDICAO_PULAR_LOTE
+                        )
+                        break
+
+                    time.sleep(5)
+
+                    print("\n=== repetindo rotina desbloquear_os ===")
+                    logging.info(
+                        "\n=== repetindo rotina desbloquear_os ==="
+                    )
+
+                    desbloquear_os()
+
+                    time.sleep(5)
+
+                    print("\n=== repetindo rotina editar_os ===")
+                    logging.info(
+                        "\n=== repetindo rotina editar_os ==="
+                    )
+
+        time.sleep(2)
+
+        if (
+            pular5
+            or resultado_edicao == RESULTADO_EDICAO_PULAR_LOTE
+        ):
+            print(
+                "🛑 Interrupção detectada. "
+                "Pulando rotina programar_os."
+            )
+            logging.warning(
+                "Rotina programar_os ignorada para este lote."
+            )
+        else:
+            print("\n=== rotina programar_os ===")
+            logging.info("\n=== rotina programar_os ===")
+            programar_os(idx)
 
 def processar_lotes_desprogramar(df_os, num_lotes, start_lote=1):
   
@@ -2155,7 +2317,7 @@ def processar_lotes_desprogramar(df_os, num_lotes, start_lote=1):
 
 
 if num_lotes_LM > 0:
-    processar_lotes(df_LM, num_lotes_LM, "LM",start_lote=14)  
+    processar_lotes(df_LM, num_lotes_LM, "LM",start_lote=1)  
 
 if num_lotes_LV > 0:
     processar_lotes(df_LV, num_lotes_LV, "LV",start_lote=1)
