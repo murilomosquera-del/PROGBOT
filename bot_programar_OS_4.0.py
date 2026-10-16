@@ -471,65 +471,206 @@ with pd.ExcelWriter(arquivo_saida, engine='openpyxl') as writer:
 
     
 
-lote_size = 25 #Definir quantas OS serão processadas por em um lote
+# === Configuração e distribuição equilibrada dos lotes ===========================
 
-df_DESPROG = df_eqm_wfm_merged_desprogramar[['OS_CORRECAO']].copy()
-
-# df_DESPROG_2 = pd.read_excel(
-#         arquivo_saida,
-#         sheet_name='DESPROGRAMAR',
-#         header= 0,
-#         dtype=str,
-#         usecols=['OS_CORRECAO']
-# )
-num_lotes_DESPROG = (len(df_DESPROG) // lote_size) + int(len(df_DESPROG) % lote_size > 0)
-
-df_LM = df_eqm_wfm_merged_pbt[['OS_CORRECAO']].copy()
+MIN_OS_POR_LOTE = 15
+MAX_OS_POR_LOTE = 30
 
 
-# df_LM_2  = pd.read_excel(
-#         arquivo_saida,
-#         sheet_name='PREV_PBT',
-#         header= 0,
-#         dtype=str,
-#         usecols=['OS_CORRECAO']
-# )
-num_lotes_LM = (len(df_LM) // lote_size) + int(len(df_LM) % lote_size > 0)
+def calcular_faixas_lotes(
+    total_os,
+    minimo_por_lote=MIN_OS_POR_LOTE,
+    maximo_por_lote=MAX_OS_POR_LOTE
+):
+    """
+    Calcula as posições inicial e final de cada lote.
 
-df_LV = df_eqm_wfm_merged_lv[['OS_CORRECAO']].copy()
+    Regras:
+    - cada lote terá no máximo 30 OS;
+    - cada lote terá no mínimo 15 OS, quando o total permitir;
+    - as OS serão distribuídas da forma mais equilibrada possível;
+    - a diferença entre os lotes será de no máximo 1 OS.
+
+    Retorno:
+        Lista de tuplas no formato:
+        [
+            (inicio_lote_1, fim_lote_1),
+            (inicio_lote_2, fim_lote_2),
+            ...
+        ]
+
+    Observação:
+        O valor de 'fim' é exclusivo, seguindo o padrão do iloc.
+
+    Exemplo para 61 OS:
+        [
+            (0, 21),
+            (21, 41),
+            (41, 61)
+        ]
+
+        Isso representa lotes com:
+        21 OS, 20 OS e 20 OS.
+    """
+
+    if total_os < 0:
+        raise ValueError("A quantidade total de OS não pode ser negativa.")
+
+    if minimo_por_lote <= 0:
+        raise ValueError("O mínimo de OS por lote deve ser maior que zero.")
+
+    if maximo_por_lote < minimo_por_lote:
+        raise ValueError(
+            "O máximo de OS por lote não pode ser menor que o mínimo."
+        )
+
+    # Não existem OS para processar
+    if total_os == 0:
+        return []
+
+    # Se o total for menor que o mínimo, não existe divisão possível
+    # que produza lotes com pelo menos 15 OS.
+    # Nesse caso, cria-se somente um lote com todas as OS.
+    if total_os < minimo_por_lote:
+        logging.warning(
+            f"Total de {total_os} OS abaixo do mínimo de "
+            f"{minimo_por_lote}. Será criado um único lote."
+        )
+
+        return [(0, total_os)]
+
+    # Calcula a menor quantidade de lotes necessária para garantir
+    # que nenhum lote tenha mais que o máximo permitido.
+    #
+    # Esta expressão equivale ao arredondamento para cima:
+    # ceil(total_os / maximo_por_lote)
+    quantidade_lotes = (
+        total_os + maximo_por_lote - 1
+    ) // maximo_por_lote
+
+    # Divide o total pela quantidade de lotes.
+    #
+    # tamanho_base:
+    # quantidade mínima de OS que cada lote receberá.
+    #
+    # sobra:
+    # quantidade de lotes que receberá uma OS adicional.
+    tamanho_base, sobra = divmod(total_os, quantidade_lotes)
+
+    faixas_lotes = []
+    inicio = 0
+
+    for indice_lote in range(quantidade_lotes):
+        # Os primeiros lotes recebem uma OS adicional enquanto houver sobra.
+        #
+        # Exemplo:
+        # 61 OS / 3 lotes
+        # tamanho_base = 20
+        # sobra = 1
+        #
+        # Distribuição:
+        # lote 1 = 21
+        # lote 2 = 20
+        # lote 3 = 20
+        tamanho_lote = tamanho_base + (
+            1 if indice_lote < sobra else 0
+        )
+
+        fim = inicio + tamanho_lote
+
+        faixas_lotes.append((inicio, fim))
+
+        inicio = fim
+
+    # Validação de segurança
+    tamanhos_lotes = [
+        fim - inicio
+        for inicio, fim in faixas_lotes
+    ]
+
+    if total_os >= minimo_por_lote:
+        if min(tamanhos_lotes) < minimo_por_lote:
+            raise RuntimeError(
+                "Foi gerado um lote abaixo do mínimo permitido."
+            )
+
+    if max(tamanhos_lotes) > maximo_por_lote:
+        raise RuntimeError(
+            "Foi gerado um lote acima do máximo permitido."
+        )
+
+    if sum(tamanhos_lotes) != total_os:
+        raise RuntimeError(
+            "A soma das OS dos lotes é diferente do total de OS."
+        )
+
+    return faixas_lotes
 
 
-# df_LV_2 = pd.read_excel(
-#         arquivo_saida,
-#         sheet_name='PREV_LV',
-#         header= 0,
-#         dtype=str,
-#         usecols=['OS_CORRECAO']  
-# )
-num_lotes_LV = (len(df_LV) // lote_size) + int(len(df_LV) % lote_size > 0)
+# === Criação dos DataFrames que serão processados ================================
 
-df_REDES = df_eqm_wfm_merged_redes[['OS_CORRECAO']].copy()
+df_DESPROG = (
+    df_eqm_wfm_merged_desprogramar[
+        ["OS_CORRECAO"]
+    ]
+    .dropna(subset=["OS_CORRECAO"])
+    .copy()
+    .reset_index(drop=True)
+)
+
+df_LM = (
+    df_eqm_wfm_merged_pbt[
+        ["OS_CORRECAO"]
+    ]
+    .dropna(subset=["OS_CORRECAO"])
+    .copy()
+    .reset_index(drop=True)
+)
+
+df_LV = (
+    df_eqm_wfm_merged_lv[
+        ["OS_CORRECAO"]
+    ]
+    .dropna(subset=["OS_CORRECAO"])
+    .copy()
+    .reset_index(drop=True)
+)
+
+df_REDES = (
+    df_eqm_wfm_merged_redes[
+        ["OS_CORRECAO"]
+    ]
+    .dropna(subset=["OS_CORRECAO"])
+    .copy()
+    .reset_index(drop=True)
+)
+
+df_LEVE = (
+    df_eqm_wfm_merged_leve[
+        ["OS_CORRECAO"]
+    ]
+    .dropna(subset=["OS_CORRECAO"])
+    .copy()
+    .reset_index(drop=True)
+)
 
 
-# df_REDES_2 = pd.read_excel(
-#         arquivo_saida,
-#         sheet_name='PREV_REDES',
-#         header= 0,
-#         dtype=str,
-#         usecols=['OS_CORRECAO']  
-# )
-num_lotes_REDES = (len(df_REDES) // lote_size) + int(len(df_REDES) % lote_size > 0)
+# === Cálculo das faixas equilibradas de cada categoria ==========================
 
-df_LEVE = df_eqm_wfm_merged_leve[['OS_CORRECAO']].copy()
+faixas_lotes_DESPROG = calcular_faixas_lotes(len(df_DESPROG))
+faixas_lotes_LM = calcular_faixas_lotes(len(df_LM))
+faixas_lotes_LV = calcular_faixas_lotes(len(df_LV))
+faixas_lotes_REDES = calcular_faixas_lotes(len(df_REDES))
+faixas_lotes_LEVE = calcular_faixas_lotes(len(df_LEVE))
 
-# df_LEVE_2 = pd.read_excel(
-#         arquivo_saida,
-#         sheet_name='PREV_LEVE',
-#         header= 0,
-#         dtype=str,
-#         usecols=['OS_CORRECAO']  
-# )
-num_lotes_LEVE = (len(df_LEVE) // lote_size) + int(len(df_LEVE) % lote_size > 0)
+
+# === Quantidade total de lotes de cada categoria ================================
+
+num_lotes_DESPROG = len(faixas_lotes_DESPROG)
+num_lotes_LM = len(faixas_lotes_LM)
+num_lotes_LV = len(faixas_lotes_LV)
+num_lotes_REDES = len(faixas_lotes_REDES)
+num_lotes_LEVE = len(faixas_lotes_LEVE)
 
 
 print(f"\nQtde OS de LINHA VIVA: {len(df_LV)}")
@@ -834,15 +975,16 @@ def verificar_bloqueio_click() -> int:
 
 def copiar_os_do_arquivo(df_os, idx):
     """
-    Copia as OS correspondentes ao lote atual.
+    Copia para a área de transferência as OS pertencentes ao lote atual.
 
-    Regra especial:
-    Quando a divisão em lotes de 25 deixa somente 1 OS no último lote,
-    os dois últimos lotes são redistribuídos.
+    Os lotes são calculados dinamicamente de acordo com a quantidade
+    total de OS do DataFrame.
 
-    Exemplo:
-        Antes: 25 + 25 + 1
-        Depois: 25 + 24 + 2
+    Regras utilizadas:
+    - máximo de 30 OS por lote;
+    - mínimo de 15 OS por lote, quando o total permitir;
+    - distribuição equilibrada entre os lotes;
+    - diferença máxima de 1 OS entre os lotes.
     """
 
     total_os = len(df_os)
@@ -853,94 +995,85 @@ def copiar_os_do_arquivo(df_os, idx):
         pyperclip.copy("")
         return
 
-    # Calcula a quantidade total de lotes
-    num_lotes = (
-        total_os // lote_size
-        + int(total_os % lote_size > 0)
-    )
+    # Recalcula as mesmas faixas usadas para determinar
+    # a quantidade total de lotes.
+    faixas_lotes = calcular_faixas_lotes(total_os)
+    num_lotes = len(faixas_lotes)
 
-    # Verifica se o último lote ficaria com somente 1 OS
-    ultimo_lote_com_uma_os = (
-        total_os > 1
-        and total_os % lote_size == 1
-    )
-
-    if ultimo_lote_com_uma_os and idx == num_lotes - 2:
-        # Penúltimo lote:
-        # cede uma OS para o último lote.
-        #
-        # Exemplo com 51 OS:
-        # normalmente seria 25:50, totalizando 25 OS;
-        # passa a ser 25:49, totalizando 24 OS.
-        inicio = idx * lote_size
-        fim = total_os - 2
-
-        print(
-            "🟨 Redistribuição aplicada no penúltimo lote: "
-            "uma OS foi transferida para o último lote."
-        )
-        logging.info(
-            "Redistribuição aplicada no penúltimo lote: "
-            "uma OS foi transferida para o último lote."
+    # Valida se o índice solicitado realmente existe.
+    if idx < 0 or idx >= num_lotes:
+        mensagem_erro = (
+            f"Índice de lote inválido: {idx}. "
+            f"Quantidade disponível de lotes: {num_lotes}."
         )
 
-    elif ultimo_lote_com_uma_os and idx == num_lotes - 1:
-        # Último lote:
-        # recebe a última OS do penúltimo lote.
-        #
-        # Exemplo com 51 OS:
-        # normalmente seria 50:51, totalizando 1 OS;
-        # passa a ser 49:51, totalizando 2 OS.
-        inicio = total_os - 2
-        fim = total_os
+        print(f"🛑 {mensagem_erro}")
+        logging.error(mensagem_erro)
 
-        print(
-            "🟨 Redistribuição aplicada no último lote: "
-            "o lote será processado com 2 OS."
-        )
-        logging.info(
-            "Redistribuição aplicada no último lote: "
-            "o lote será processado com 2 OS."
-        )
+        pyperclip.copy("")
+        return
 
-    else:
-        # Divisão normal em lotes de até 25 OS
-        inicio = idx * lote_size
-        fim = min(inicio + lote_size, total_os)
+    # Recupera as posições inicial e final do lote atual.
+    inicio, fim = faixas_lotes[idx]
 
+    # Seleciona somente as linhas pertencentes ao lote atual.
     df_lote = df_os.iloc[inicio:fim].copy()
 
+    # Limpa e transforma as OS em uma lista de textos.
     dados = (
         df_lote["OS_CORRECAO"]
         .dropna()
         .astype(str)
         .str.strip()
+        .loc[lambda serie: serie.ne("")]
         .tolist()
     )
 
+    # Cada OS será colocada em uma linha diferente.
     texto_para_copiar = "\n".join(dados)
+
+    # Envia o conteúdo para a área de transferência.
     pyperclip.copy(texto_para_copiar)
+
+    # Obtém o tamanho de todos os lotes somente para exibição e log.
+    distribuicao_lotes = [
+        faixa_fim - faixa_inicio
+        for faixa_inicio, faixa_fim in faixas_lotes
+    ]
 
     print(
         f"DEBUG: idx={idx}, início={inicio}, fim={fim}, "
         f"total_os={total_os}, num_lotes={num_lotes}"
     )
+
+    print(
+        f"📊 Distribuição dos lotes: {distribuicao_lotes}"
+    )
+
     print(
         f"✅ {len(dados)} OS copiadas para a área de transferência."
     )
-    print(f"📋 Lote {idx + 1}/{num_lotes} copiado.")
+
+    print(
+        f"📋 Lote {idx + 1}/{num_lotes} copiado."
+    )
 
     logging.info(
         f"DEBUG: idx={idx}, início={inicio}, fim={fim}, "
         f"total_os={total_os}, num_lotes={num_lotes}"
     )
+
+    logging.info(
+        f"Distribuição dos lotes: {distribuicao_lotes}"
+    )
+
     logging.info(
         f"{len(dados)} OS copiadas para a área de transferência."
     )
+
     logging.info(
         f"Lote {idx + 1}/{num_lotes} copiado."
     )
-
 # === abrir janela de pesquisa avançada de OS =======================================================================================
 
 def abrir_janela_selecao():
