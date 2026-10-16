@@ -1045,11 +1045,6 @@ def copiar_os_do_arquivo(df_os, idx):
         f"DEBUG: idx={idx}, início={inicio}, fim={fim}, "
         f"total_os={total_os}, num_lotes={num_lotes}"
     )
-
-    print(
-        f"📊 Distribuição dos lotes: {distribuicao_lotes}"
-    )
-
     print(
         f"✅ {len(dados)} OS copiadas para a área de transferência."
     )
@@ -2449,11 +2444,11 @@ def processar_lotes_desprogramar(df_os, num_lotes, start_lote=1):
 
 
 
-if num_lotes_LM > 0:
-    processar_lotes(df_LM, num_lotes_LM, "LM",start_lote=1)  
+# if num_lotes_LM > 0:
+#     processar_lotes(df_LM, num_lotes_LM, "LM",start_lote=1)  
 
-if num_lotes_LV > 0:
-    processar_lotes(df_LV, num_lotes_LV, "LV",start_lote=1)
+# if num_lotes_LV > 0:
+#     processar_lotes(df_LV, num_lotes_LV, "LV",start_lote=1)
     
 if num_lotes_REDES > 0:
     processar_lotes(df_REDES, num_lotes_REDES, "REDES",start_lote=1)
