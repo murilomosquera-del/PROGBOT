@@ -11,6 +11,7 @@ import time
 from datetime import datetime, date
 import calendar
 import sys
+from dateutil.relativedelta import relativedelta
 
 pyautogui.FAILSAFE = False
 
@@ -154,14 +155,23 @@ data_final_mes = dt.date(hoje.year, hoje.month, ultimo_dia)
 
 amanha = hoje + dt.timedelta(days=2)
 
-print(f"Data hoje: {hoje:%d/%m/%Y}")
+data_final_mes = dt.date(hoje.year, hoje.month, ultimo_dia)
 
-print(f"Data de referência: {data_final_mes:%d/%m/%Y}")
+proximo_mes = hoje + relativedelta(months=1)
+ultimo_dia_proximo_mes = calendar.monthrange(proximo_mes.year, proximo_mes.month)[1]
+data_proximo_mes = dt.date(proximo_mes.year, proximo_mes.month, ultimo_dia_proximo_mes)
+
+
+carteira_atual = data_final_mes
+carteira_futura = data_proximo_mes
+
+print(f"Data hoje: {hoje:%d/%m/%Y}")
+print(f"data_proximo_mes: {data_proximo_mes:%d/%m/%Y}")
+
 
 logging.info(f"Data hoje: {hoje:%d/%m/%Y}")
 logging.info(f"Data de referência: {data_final_mes:%d/%m/%Y}")
-
-
+logging.info(f"data_proximo_mes: {data_proximo_mes:%d/%m/%Y}")
 
 ARQUIVO_BASE_EQM = r"\\brnet002\Publico\Central_De_Relatorios\manutencao\base_eqm\base_eqm.csv"
 ARQUIVO_BI_PCP_BASE_OS = r"\\brnet002\Publico\Central_De_Relatorios\manutencao\bi_pcp_base_os\bi_pcp_base_os.csv"
@@ -202,7 +212,7 @@ df_bi_pcp_base_os = pd.read_csv(
 df_bi_pcp_base_os['PRAZO'] = pd.to_datetime(df_bi_pcp_base_os['PRAZO'], errors ="coerce")
 df_bi_pcp_base_os['PRAZO'] = df_bi_pcp_base_os['PRAZO'].dt.date
 
-df_bi_pcp_base_os = df_bi_pcp_base_os.loc[df_bi_pcp_base_os['PRAZO'] == data_final_mes]
+df_bi_pcp_base_os = df_bi_pcp_base_os.loc[df_bi_pcp_base_os['PRAZO'] == carteira_futura]
                                            
 
 dtype_map_base_wfm = {
@@ -322,7 +332,8 @@ FILTRO_EQM= (
   ~df_eqm['DEFEITO'].str.contains('cadastro', case=False, na=False) &
   ~df_eqm['DEFEITO'].str.contains('inspeção', case=False, na=False) &
   ~df_eqm['DEFEITO'].str.contains('telefonia', case=False, na=False) &
-  ~df_eqm['DEFEITO'].str.contains('servidão', case=False, na=False) 
+  ~df_eqm['DEFEITO'].str.contains('servidão', case=False, na=False) &
+  ~df_eqm['DEFEITO'].str.contains('PLACA DE IDENTIFICAÇÃO', case=False, na=False)
    #df_eqm['UTD'].eq('BRUMADO')
    
    #df_eqm['UTD'].isin(['IRECE','ITABERABA','JEQUIE','LIVRAMENTO DE NOSSA SENHORA','SEABRA','BOM JESUS DA LAPA','IBOTIRAMA','SANTA MARIA DA VITORIA','LUIS EDUARDO MAGALHAES','BRUMADO','GUANAMBI','ITAPETINGA','VITORIA DA CONQUISTA'])
