@@ -1,7 +1,37 @@
+# Planilhas geradas pelo robo
+EXCEL/
+*.xlsx
+*.xls
 
+# Logs e capturas de erro
+LOGS/
+*.log
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+
+# Ambiente virtual
 venv/
 .venv/
-__pycache__/
-*.pyc
+env/
+py311/
+
+# Credenciais e configuracoes locais
 .env
+.env.*
+credentials.json
+secrets.json
+
+# Arquivos temporarios
+*.tmp
+*.bak
+~$*
+
+# Configuracoes dos editores
 .vscode/
+.idea/
+
+# Arquivos do Windows
+Thumbs.db
+Desktop.ini
