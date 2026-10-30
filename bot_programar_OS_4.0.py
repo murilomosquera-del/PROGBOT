@@ -326,9 +326,11 @@ df_eqm = df_eqm[df_eqm['DATA_INSP'] > pd.Timestamp('2023-01-01')]
 
 
 FILTRO_EQM= (
-   df_eqm['TIPO_DEFEITO'].isin(['FAIXA','PODA','ESTRUTURAL']) &
-   df_eqm['BOOLEAN_STATUS'].eq(0) &
+  df_eqm['TIPO_DEFEITO'].isin(['FAIXA','PODA','ESTRUTURAL']) &
+  df_eqm['BOOLEAN_STATUS'].eq(0) &
   ~df_eqm['DEFEITO'].eq('MANUTENÇÃO COM TURMA PODA') &
+  ~df_eqm['DEFEITO'].eq('MANUTENÇÃO COM TURMA PESADA') & 
+  ~df_eqm['DEFEITO'].eq('MANUTENÇÃO COM TURMA LINHA VIVA') &
   ~df_eqm['DEFEITO'].str.contains('cadastro', case=False, na=False) &
   ~df_eqm['DEFEITO'].str.contains('inspeção', case=False, na=False) &
   ~df_eqm['DEFEITO'].str.contains('telefonia', case=False, na=False) &
